@@ -21,7 +21,7 @@ python skills/spx-tracking/scripts/spx_tracking.py <tracking_number> [--format j
 |---|---|
 | `tracking_number` | SPX tracking number (format: CNMY..., SPXMY...) |
 | `--format` | `json` (default) — structured data; `text` — human-readable; `summary` — one-line status |
-| `--cookie` | Browser cookie for authenticated requests (optional) |
+| `--cookie` | Browser cookie for authenticated requests (optional, sensitive — do not echo in logs or replies) |
 | `--timeout` | Request timeout in seconds (default: 15) |
 
 ## Output Format Detail
