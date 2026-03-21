@@ -37,32 +37,32 @@ python scripts/spx_tracking.py CNMY000XXXXXX --format json
 
 No login, no cookie, no API key required. The script queries SPX's public endpoint directly.
 
-## Skill (for AI Agents)
+## OpenClaw Skill
 
-This repo ships an OpenClaw skill at `SKILL.md` — it describes the script interface and trigger phrases so AI agents can invoke tracking correctly.
-
-### Install the OpenClaw CLI
-
-```bash
-# Requires Node.js 22+
-npm install -g openclaw@latest
-openclaw onboard --install-daemon
-```
+This repo ships an OpenClaw skill at `skills/spx-tracking/SKILL.md`. Place the repo (or just the `skills/` directory) inside OpenClaw's workspace skills path.
 
 ### Install the Skill
 
-Copy the repo, then place `SKILL.md` inside a `./skills/` directory:
-
 ```bash
-mkdir -p skills
-cp SKILL.md skills/
+# Option 1: Copy the whole repo
+# Place repo at ~/.openclaw/workspace/skills/spx-tracking/  (or any configured workspace skills dir)
+
+# Option 2: Copy only the skills directory into your workspace
+cp -r skills/ ~/.openclaw/workspace/skills/
 ```
 
-OpenClaw picks up workspace skills from `./skills/` automatically on next session.
+OpenClaw picks up workspace skills automatically. Start a new session to load the skill.
 
 ### Verify
 
 ```bash
-openclaw skills info spx-tracking
+openclaw skills list
 openclaw skills check
 ```
+
+### Dependencies
+
+| Dependency | Required | Note |
+|---|---|---|
+| `python` | Yes | On PATH as `python` |
+| `requests` | Yes | `pip install -r requirements.txt` |

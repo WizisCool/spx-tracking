@@ -1,6 +1,12 @@
 ---
 name: spx-tracking
+license: MIT
 description: Query SPX Express shipment tracking by tracking number. Call this skill when the user mentions a tracking number matching the SPX format (CNMY...), or uses any of these Chinese or English trigger phrases in the context of a delivery: "快递" "物流" "到了吗" "到哪了" "派送" "签收" "发货" "tracking" "delivered" "parcel" "package" "delivery" "shipment". Also invoke this skill for CAINIAO / 菜鸟 / 菜鸟集运 (CAINIAO Smart Logistics) tracking numbers — CAINIAO's last-mile delivery in Malaysia uses SPX Express, so the same number is queryable via the SPX API. This skill does NOT handle J&T, Pos Laju, DHL, FedEx, UPS, or any non-SPX courier. The script calls the public SPX API and returns structured JSON, human-readable text, or a one-line summary.
+metadata:
+  openclaw:
+    requires:
+      bins: ["python"]
+    os: ["darwin", "linux", "win32"]
 ---
 
 # SPX Express Tracking
@@ -10,7 +16,7 @@ Query SPX Express (spx.com.my) shipment tracking and return structured results.
 ## Invocation
 
 ```bash
-python scripts/spx_tracking.py <tracking_number> [--format json|text|summary] [--cookie "..."] [--timeout 15]
+python skills/spx-tracking/scripts/spx_tracking.py <tracking_number> [--format json|text|summary] [--cookie "..."] [--timeout 15]
 ```
 
 ## Arguments
