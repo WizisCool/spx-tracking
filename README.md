@@ -1,5 +1,7 @@
 # SPX Express Tracking
 
+[中文说明](./README.zh-CN.md)
+
 Tiny SPX Express tracking utility for the command line, with an OpenClaw skill included.
 
 It queries the public SPX Malaysia endpoint directly and returns either structured JSON, a readable tracking report, or a compact one-line summary.
