@@ -1,78 +1,81 @@
 # SPX Express Tracking
 
-Query SPX Express (spx.com.my) shipment tracking from the command line.
+Tiny SPX Express tracking utility for the command line, with an OpenClaw skill included.
+
+It queries the public SPX Malaysia endpoint directly and returns either structured JSON, a readable tracking report, or a compact one-line summary.
 
 ## Quick Start
 
+Recommended for local use:
+
 ```bash
-# Auto-creates venv, installs deps, runs the script
 ./run CNMY000XXXXXX --format summary
 ```
 
-Or manually:
+The `run` wrapper bootstraps a local virtual environment, installs dependencies if needed, and executes the tracker.
+
+## Manual Usage
 
 ```bash
 pip install -r requirements.txt
 python skills/spx-tracking/scripts/spx_tracking.py <tracking_number> [--format json|text|summary]
 ```
 
+## Examples
+
+```bash
+# Quick one-line status
+./run CNMY000XXXXXX --format summary
+
+# Full readable report
+./run CNMY000XXXXXX --format text
+
+# Structured JSON for piping or automation
+./run CNMY000XXXXXX --format json
+```
+
+## Output Formats
+
+| Format | Description |
+|---|---|
+| `json` | Full structured output |
+| `text` | Human-readable report with timeline and route details |
+| `summary` | Single-line status for quick checks |
+
 ## Arguments
 
 | Argument | Description |
 |---|---|
-| `tracking_number` | SPX tracking number (CNMY..., SPXMY...) |
-| `--format json` | Full structured JSON (default) |
-| `--format text` | Human-readable report with timeline and geo route |
-| `--format summary` | One-line status for quick replies |
-| `--cookie` | Browser cookie for authenticated requests (optional, sensitive) |
-| `--timeout` | Request timeout in seconds (default: 15) |
+| `tracking_number` | SPX tracking number such as `CNMY...` or `SPXMY...` |
+| `--format` | `json`, `text`, or `summary` |
+| `--cookie` | Optional browser cookie for fallback authenticated requests |
+| `--timeout` | Request timeout in seconds (default: `15`) |
 
-## Examples
+## Notes
 
-```bash
-# One-line status
-./run CNMY000XXXXXX --format summary
-
-# Full human-readable report
-./run CNMY000XXXXXX --format text
-
-# Structured JSON (piped to other tools)
-./run CNMY000XXXXXX --format json
-```
-
-## Credential-Free
-
-No login, no cookie, no API key required. The script queries SPX's public endpoint directly. The `--cookie` flag is optional and only needed if the public endpoint returns errors.
+- No API key is required.
+- No login is required in normal cases.
+- The `--cookie` flag is optional and only useful when the public endpoint rejects the request.
+- This project is intentionally small and focused.
 
 ## OpenClaw Skill
 
-This repo ships an OpenClaw skill. Install via ClawHub:
+This repository also includes an OpenClaw skill under:
 
-```bash
-clawhub install spx-tracking
+```text
+skills/spx-tracking/
 ```
 
-Or manually — place the repo at `~/.openclaw/workspace/skills/spx-tracking/`:
+If you want to use it inside OpenClaw, install or copy that skill into your OpenClaw skills directory according to your local setup.
 
-```bash
-git clone https://github.com/WizisCool/spx-tracking.git ~/.openclaw/workspace/skills/spx-tracking/
-```
-
-Start a new OpenClaw session to load the skill.
-
-### Verify
-
-```bash
-openclaw skills list
-openclaw skills check
-```
+The skill uses the same Python tracker included in this repository.
 
 ## Dependencies
 
 | Dependency | Required | Note |
 |---|---|---|
-| `python3` | Yes | On PATH as `python3` |
-| `requests` | Yes | `pip install -r requirements.txt` (auto-handled by `run` script) |
+| `python3` | Yes | Must be available on PATH |
+| `requests` | Yes | Installed via `requirements.txt` |
 
 ## License
 
