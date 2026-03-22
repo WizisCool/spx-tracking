@@ -8,6 +8,8 @@ It queries the public SPX Malaysia endpoint directly and returns either structur
 
 ## Quick Start
 
+### CLI
+
 Recommended for local use:
 
 ```bash
@@ -15,6 +17,18 @@ Recommended for local use:
 ```
 
 The `run` wrapper bootstraps a local virtual environment, installs dependencies if needed, and executes the tracker.
+
+### OpenClaw Skill
+
+Install from ClawHub:
+
+```bash
+clawhub install spx-tracking
+```
+
+ClawHub:
+
+- https://clawhub.ai/WizisCool/spx-tracking
 
 ## Manual Usage
 
@@ -53,33 +67,23 @@ python skills/spx-tracking/scripts/spx_tracking.py <tracking_number> [--format j
 | `--cookie` | Optional browser cookie for fallback authenticated requests |
 | `--timeout` | Request timeout in seconds (default: `15`) |
 
-## Notes
+## OpenClaw Skill Layout
 
-- No API key is required.
-- No login is required in normal cases.
-- The `--cookie` flag is optional and only useful when the public endpoint rejects the request.
-
-## OpenClaw Skill
-
-This repository also includes an OpenClaw skill under:
+This repository also includes the skill source under:
 
 ```text
 skills/spx-tracking/
 ```
 
-ClawHub page:
-
-- https://clawhub.ai/WizisCool/spx-tracking
-
-Install via ClawHub:
-
-```bash
-clawhub install spx-tracking
-```
-
-If you prefer a manual setup, you can also copy the skill directory into your local OpenClaw skills directory.
+If you prefer a manual setup, you can copy that directory into your local OpenClaw skills directory.
 
 The skill uses the same Python tracker included in this repository.
+
+## Notes
+
+- No API key is required.
+- No login is required in normal cases.
+- The `--cookie` flag is optional and only useful when the public endpoint rejects the request.
 
 ## Dependencies
 

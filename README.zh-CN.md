@@ -8,6 +8,8 @@
 
 ## 快速开始
 
+### CLI
+
 本地使用推荐直接运行：
 
 ```bash
@@ -15,6 +17,18 @@
 ```
 
 `run` 会自动创建本地虚拟环境、安装依赖，并执行追踪脚本。
+
+### OpenClaw Skill
+
+通过 ClawHub 安装：
+
+```bash
+clawhub install spx-tracking
+```
+
+ClawHub 页面：
+
+- https://clawhub.ai/WizisCool/spx-tracking
 
 ## 手动使用
 
@@ -53,33 +67,23 @@ python skills/spx-tracking/scripts/spx_tracking.py <tracking_number> [--format j
 | `--cookie` | 可选的浏览器 Cookie，用于公开接口失败时兜底 |
 | `--timeout` | 请求超时时间，默认 `15` 秒 |
 
-## 说明
+## OpenClaw Skill 目录
 
-- 不需要 API key。
-- 正常情况下不需要登录。
-- `--cookie` 是可选项，只有公开接口拒绝请求时才可能需要。
-
-## OpenClaw Skill
-
-这个仓库也附带了一个 OpenClaw skill，位于：
+这个仓库也附带了 skill 源码，位于：
 
 ```text
 skills/spx-tracking/
 ```
 
-ClawHub 页面：
-
-- https://clawhub.ai/WizisCool/spx-tracking
-
-通过 ClawHub 安装：
-
-```bash
-clawhub install spx-tracking
-```
-
-如果你更习惯手动方式，也可以把 skill 目录复制到本地 OpenClaw skills 目录中。
+如果你更习惯手动方式，也可以把这个目录复制到本地 OpenClaw skills 目录中。
 
 skill 调用的就是本仓库内置的同一个 Python 追踪脚本。
+
+## 说明
+
+- 不需要 API key。
+- 正常情况下不需要登录。
+- `--cookie` 是可选项，只有公开接口拒绝请求时才可能需要。
 
 ## 依赖
 
