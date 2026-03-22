@@ -58,7 +58,6 @@ python skills/spx-tracking/scripts/spx_tracking.py <tracking_number> [--format j
 - No API key is required.
 - No login is required in normal cases.
 - The `--cookie` flag is optional and only useful when the public endpoint rejects the request.
-- This project is intentionally small and focused.
 
 ## OpenClaw Skill
 
@@ -68,7 +67,17 @@ This repository also includes an OpenClaw skill under:
 skills/spx-tracking/
 ```
 
-If you want to use it inside OpenClaw, install or copy that skill into your OpenClaw skills directory according to your local setup.
+ClawHub page:
+
+- https://clawhub.ai/WizisCool/spx-tracking
+
+Install via ClawHub:
+
+```bash
+clawhub install spx-tracking
+```
+
+If you prefer a manual setup, you can also copy the skill directory into your local OpenClaw skills directory.
 
 The skill uses the same Python tracker included in this repository.
 
